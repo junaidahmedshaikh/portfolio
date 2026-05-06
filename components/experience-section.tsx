@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { achievements } from "@/lib/constant";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,14 +11,6 @@ export function ExperienceSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-
-  const achievements = [
-    "Built a real-time service configuration platform → reduced configuration errors by 57%, deployment time by 60%, and downtime by 36%",
-    "Developed a schema-less no-code CRM engine enabling dynamic workflows and flexible data structures",
-    "Led end-to-end test automation using Playwright and Cucumber → reduced regression defects by 50% and QA cycles by 65%",
-    "Designed a role-based access approval system with audit trails → improved provisioning efficiency by 50%",
-    "Improved system stability by resolving memory leaks, race conditions, and production issues",
-  ];
 
   useEffect(() => {
     if (!sectionRef.current || !headerRef.current || !contentRef.current)

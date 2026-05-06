@@ -152,9 +152,9 @@ export function ColophonSection() {
         <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">
           © {new Date().getFullYear()} Junaid Ahmed Shaikh. All rights reserved.
         </p>
-        <p className="font-mono text-[10px] text-muted-foreground">
+        {/* <p className="font-mono text-[10px] text-muted-foreground">
           Built with Next.js, Tailwind, and GSAP.
-        </p>
+        </p> */}
       </div>
     </section>
   );

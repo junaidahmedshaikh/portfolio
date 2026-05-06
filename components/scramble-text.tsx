@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef, useCallback } from "react"
 import gsap from "gsap"
+import { GLYPHS } from "@/lib/constant"
 
 interface ScrambleTextProps {
   text: string
@@ -22,8 +23,6 @@ interface ScrambleTextOnHoverProps {
   /** onClick handler for buttons */
   onClick?: () => void
 }
-
-const GLYPHS = "!@#$%^&*()_+-=<>?/\\[]{}Xx"
 
 /**
  * Run the scramble animation on text

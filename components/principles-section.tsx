@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react"
 import { HighlightText } from "@/components/highlight-text"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { principles } from "@/lib/constant"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -11,45 +12,6 @@ export function PrinciplesSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const principlesRef = useRef<HTMLDivElement>(null)
-
-  const principles = [
-    {
-      number: "01",
-      titleParts: [
-        { text: "PERFORMANCE", highlight: true },
-        { text: " FIRST", highlight: false },
-      ],
-      description: "Scalability and efficiency at the core. Every system designed for growth and optimization.",
-      align: "left",
-    },
-    {
-      number: "02",
-      titleParts: [
-        { text: "REAL-TIME", highlight: true },
-        { text: " SYSTEMS", highlight: false },
-      ],
-      description: "Building responsive applications with WebSockets and low-latency architectures.",
-      align: "right",
-    },
-    {
-      number: "03",
-      titleParts: [
-        { text: "CODE ", highlight: false },
-        { text: "QUALITY", highlight: true },
-      ],
-      description: "Testing, automation, and clean architecture. Reducing bugs through precision engineering.",
-      align: "left",
-    },
-    {
-      number: "04",
-      titleParts: [
-        { text: "DEVELOPER ", highlight: false },
-        { text: "EXPERIENCE", highlight: true },
-      ],
-      description: "Building tools and libraries that make developers' lives easier. Intuitive APIs matter.",
-      align: "right",
-    },
-  ]
 
   useEffect(() => {
     if (!sectionRef.current || !headerRef.current || !principlesRef.current) return

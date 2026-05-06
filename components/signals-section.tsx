@@ -76,8 +76,8 @@ export function SignalsSection() {
           I'm a{" "}
           <span className="text-accent font-semibold">Software Developer</span>{" "}
           based in <span className="text-accent font-semibold">Mumbai</span>. I
-          build backend systems, real-time applications, and developer tools —
-          and I tend to think about them in terms of{" "}
+          build backend systems, real-time applications, and developer tools and
+          I tend to think about them in terms of{" "}
           <span className="text-accent font-semibold">
             architecture and failure modes
           </span>{" "}

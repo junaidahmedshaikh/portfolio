@@ -2,16 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-
-const navItems = [
-  { id: "hero", label: "Index" },
-  { id: "signals", label: "Signals" },
-  { id: "work", label: "Experiments" },
-  // { id: "principles", label: "Principles" },
-  { id: "experience", label: "Experience" },
-  { id: "tech-stack", label: "Tech Stack" },
-  { id: "colophon", label: "Contact" },
-];
+import { navItems } from "@/lib/constant";
 
 export function SideNav() {
   const [activeSection, setActiveSection] = useState("hero");

@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { skillCategories } from "@/lib/constant";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,37 +11,6 @@ export function TechStackSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
-
-  const skillCategories = [
-    {
-      title: "Languages",
-      skills: ["JavaScript", "TypeScript", "Java", "C++"],
-    },
-    {
-      title: "Frontend",
-      skills: ["React.js", "Next.js", "Redux Toolkit", "Tailwind CSS"],
-    },
-    {
-      title: "Backend",
-      skills: [
-        "Node.js",
-        "Express.js",
-        "REST APIs",
-        "WebSockets",
-        "JWT",
-        "MongoDB",
-        "Redis",
-      ],
-    },
-    {
-      title: "Testing",
-      skills: ["Playwright", "Cucumber", "API Testing"],
-    },
-    {
-      title: "Tools",
-      skills: ["AWS", "Docker", "GitHub Actions", "CI/CD"],
-    },
-  ];
 
   useEffect(() => {
     if (!sectionRef.current) return;

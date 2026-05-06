@@ -4,61 +4,16 @@ import { useState, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import { experiments } from "@/lib/constant";
 gsap.registerPlugin(ScrollTrigger);
-
-const experiments = [
-  {
-    title: "Nafex",
-    medium: "API Testing Library",
-    description:
-      "Unified API testing & monitoring with 98% code reduction, security testing, and performance analytics.",
-    span: "col-span-2 row-span-2",
-    links: {
-      github: "https://github.com/junaidahmedshaikh/nafex",
-      npm: "https://www.npmjs.com/package/nafex",
-    },
-  },
-  {
-    title: "Bondly",
-    medium: "Real-Time Social Platform",
-    description:
-      "Real-time messaging, JWT auth, Redis caching, and CI/CD pipeline.",
-    span: "col-span-1 row-span-1",
-    links: {
-      live: "https://bondly1.netlify.app",
-      github: "https://github.com/junaidahmedshaikh/bondly",
-    },
-  },
-  {
-    title: "SlashRTC",
-    medium: "Real-Time Config Platform",
-    description:
-      "Reduced errors 57% and deployment time 60%. Led test automation reducing defects 50%.",
-    span: "col-span-1 row-span-2",
-    links: null,
-  },
-  {
-    title: "No-Code CRM",
-    medium: "CRM System",
-    description:
-      "Custom CRM system developed at SlashRTC for streamlined customer management.",
-    span: "col-span-1 row-span-1",
-    links: null,
-  },
-  // {
-  //   title: "Access Approval System",
-  //   medium: "Authorization",
-  //   description: "Built access approval system improving efficiency by 50% at SlashRTC.",
-  //   span: "col-span-2 row-span-1",
-  //   links: null,
-  // },
-];
 
 export function WorkSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+  const [selectedProject, setSelectedProject] = useState<
+    (typeof experiments)[0] | null
+  >(null);
 
   useEffect(() => {
     if (!sectionRef.current || !headerRef.current || !gridRef.current) return;
@@ -135,9 +90,18 @@ export function WorkSection() {
             experiment={experiment}
             index={index}
             persistHover={index === 0}
+            onSelect={() => setSelectedProject(experiment)}
           />
         ))}
       </div>
+
+      {/* Project Modal */}
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </section>
   );
 }
@@ -146,16 +110,12 @@ function WorkCard({
   experiment,
   index,
   persistHover = false,
+  onSelect,
 }: {
-  experiment: {
-    title: string;
-    medium: string;
-    description: string;
-    span: string;
-    links?: { [key: string]: string } | null;
-  };
+  experiment: (typeof experiments)[0];
   index: number;
   persistHover?: boolean;
+  onSelect: () => void;
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLElement>(null);
@@ -177,6 +137,11 @@ function WorkCard({
 
   const isActive = isHovered || isScrollActive;
 
+  // Truncate description to 80 characters for card display
+  const truncatedDescription =
+    experiment.description.slice(0, 80) +
+    (experiment.description.length > 80 ? "..." : "");
+
   return (
     <article
       ref={cardRef}
@@ -187,6 +152,7 @@ function WorkCard({
       )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={onSelect}
     >
       {/* Background layer */}
       <div
@@ -219,23 +185,16 @@ function WorkCard({
             isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
           )}
         >
-          {experiment.description}
+          {truncatedDescription}
         </p>
-        {experiment.links && (
-          <div className="mt-3 flex gap-3">
-            {Object.entries(experiment.links).map(([label, url]) => (
-              <a
-                key={label}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-[10px] uppercase tracking-widest text-accent hover:text-accent/80 transition-colors duration-200"
-              >
-                {label}
-              </a>
-            ))}
-          </div>
-        )}
+        <div
+          className={cn(
+            "mt-2 text-xs font-mono text-accent/70 transition-all duration-500",
+            isActive ? "opacity-100" : "opacity-0",
+          )}
+        >
+          Click to learn more →
+        </div>
       </div>
 
       {/* Index marker */}
@@ -259,5 +218,127 @@ function WorkCard({
         <div className="absolute top-0 right-0 w-[1px] h-full bg-accent" />
       </div>
     </article>
+  );
+}
+
+interface ProjectModalProps {
+  project: (typeof experiments)[0];
+  onClose: () => void;
+}
+
+function ProjectModal({ project, onClose }: ProjectModalProps) {
+  useEffect(() => {
+    // Prevent body scroll when modal is open
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, []);
+
+  return (
+    <>
+      {/* Backdrop */}
+      <div
+        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300"
+        onClick={onClose}
+      />
+
+      {/* Modal */}
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6">
+        <div
+          className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-background border border-border/60 rounded-lg p-6 md:p-8 animate-in fade-in slide-in-from-bottom-4 duration-300"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Close button */}
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors duration-200"
+            aria-label="Close modal"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+
+          {/* Content */}
+          <div>
+            {/* Header */}
+            <div className="mb-8">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-accent mb-2 block">
+                {project.medium}
+              </span>
+              <h2 className="font-[var(--font-bebas)] text-4xl md:text-5xl tracking-tight text-foreground mb-4">
+                {project.title}
+              </h2>
+            </div>
+
+            {/* Full Description */}
+            <div className="mb-8">
+              <h3 className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-3">
+                About
+              </h3>
+              <p className="font-mono text-sm leading-relaxed text-foreground/80">
+                {project.description}
+              </p>
+            </div>
+
+            {/* Links */}
+            {project.links && Object.keys(project.links).length > 0 && (
+              <div className="mb-8">
+                <h3 className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-3">
+                  Links
+                </h3>
+                <div className="flex flex-wrap gap-3">
+                  {Object.entries(project.links).map(([label, url]) => (
+                    <a
+                      key={label}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 border border-accent/40 rounded text-accent hover:bg-accent/5 hover:border-accent/60 transition-all duration-200 font-mono text-xs uppercase tracking-widest"
+                    >
+                      {label}
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Close action */}
+            <div className="mt-10 pt-6 border-t border-border/30">
+              <button
+                onClick={onClose}
+                className="font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-200"
+              >
+                ← Back
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
