@@ -63,25 +63,23 @@ export function HeroSection() {
           </div>
         </SplitFlapAudioProvider>
 
-        <h2 className="font-[var(--font-bebas)] text-muted-foreground/60 text-[clamp(1rem,3vw,2rem)] mt-4 tracking-wide">
+        <h2 className="font-[var(--font-bebas)]  text-white text-[clamp(1rem,3vw,2rem)] mt-4 tracking-wide">
           Full Stack Developer
         </h2>
-
-        <p className="mt-12 max-w-md font-mono text-sm text-muted-foreground leading-relaxed">
-          Building scalable, real-time systems and developer tools with
-          performance at the core. Based in Mumbai, India.
+        <p className="mt-8 max-w-md font-mono text-sm text-muted-foreground leading-relaxed">
+          I build scalable, high-performance web applications with a focus on
+          clean architecture, seamless user experiences, and robust backend
+          systems that are designed to grow with your business.
         </p>
 
-        <div className="mt-16 flex items-center gap-8">
+        <div className="mt-10 flex items-center gap-8">
           <a
-            href="#work"
+            href="https://drive.google.com/file/d/1AoQ1IsqSrihxaL8R4c0OXu7BCGZGf4WU/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 border border-foreground/20 px-6 py-3 font-mono text-xs uppercase tracking-widest text-foreground hover:border-accent hover:text-accent transition-all duration-200"
           >
-            <ScrambleTextOnHover
-              text="View Projects"
-              as="span"
-              duration={0.6}
-            />
+            <ScrambleTextOnHover text="Resume" as="span" duration={0.6} />
             <BitmapChevron className="transition-transform duration-[400ms] ease-in-out group-hover:rotate-45" />
           </a>
           <a
@@ -98,7 +96,7 @@ export function HeroSection() {
       {/* Floating info tag */}
       <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12">
         <div className="border border-border px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-          v.01 / Portfolio
+          v.02 / Portfolio
         </div>
       </div>
     </section>

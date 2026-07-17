@@ -185,7 +185,7 @@ function WorkCard({
             isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
           )}
         >
-          {truncatedDescription}
+          {experiment.tagline}
         </p>
         <div
           className={cn(
@@ -239,15 +239,16 @@ function ProjectModal({ project, onClose }: ProjectModalProps) {
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300"
+        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300"
         onClick={onClose}
       />
 
       {/* Modal */}
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6">
         <div
-          className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-background border border-border/60 rounded-lg p-6 md:p-8 animate-in fade-in slide-in-from-bottom-4 duration-300"
+          className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto bg-background border border-border/60 rounded-lg p-6 md:p-8 animate-in fade-in slide-in-from-bottom-4 duration-300"
           onClick={(e) => e.stopPropagation()}
+          data-lenis-prevent
         >
           {/* Close button */}
           <button
@@ -273,31 +274,114 @@ function ProjectModal({ project, onClose }: ProjectModalProps) {
           {/* Content */}
           <div>
             {/* Header */}
-            <div className="mb-8">
+            <div className="mb-6">
               <span className="font-mono text-[10px] uppercase tracking-widest text-accent mb-2 block">
                 {project.medium}
               </span>
-              <h2 className="font-[var(--font-bebas)] text-4xl md:text-5xl tracking-tight text-foreground mb-4">
+              <h2 className="font-[var(--font-bebas)] text-4xl md:text-5xl tracking-tight text-foreground mb-2">
                 {project.title}
               </h2>
+              {project.subtitle && (
+                <p className="font-mono text-xs md:text-sm text-muted-foreground italic">
+                  {project.subtitle}
+                </p>
+              )}
+            </div>
+
+            {/* Quick Details Block */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-t border-b border-border/30 py-4 my-6">
+              <div>
+                <h4 className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-1">
+                  Role
+                </h4>
+                <p className="font-mono text-xs text-foreground font-semibold">
+                  {project.role}
+                </p>
+              </div>
+              <div>
+                <h4 className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-1.5">
+                  Technologies Used
+                </h4>
+                <div className="flex flex-wrap gap-1.5">
+                  {project.technologies?.map((tech) => (
+                    <span
+                      key={tech}
+                      className="font-mono text-[9px] bg-accent/10 text-accent px-2 py-0.5 rounded border border-accent/20"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Full Description */}
             <div className="mb-8">
-              <h3 className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-3">
-                About
-              </h3>
+              <h4 className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-3">
+                Overview
+              </h4>
               <p className="font-mono text-sm leading-relaxed text-foreground/80">
                 {project.description}
               </p>
             </div>
 
+            {/* Key Features */}
+            {project.features && project.features.length > 0 && (
+              <div className="mb-8">
+                <h4 className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-3">
+                  Key Project Features
+                </h4>
+                <ul className="space-y-3 font-mono text-xs md:text-sm text-foreground/80">
+                  {project.features.map((feature, i) => {
+                    const colonIndex = feature.indexOf(":");
+                    if (colonIndex !== -1) {
+                      const title = feature.substring(0, colonIndex);
+                      const desc = feature.substring(colonIndex + 1);
+                      return (
+                        <li key={i} className="flex gap-2">
+                          <span className="text-accent font-semibold shrink-0">▪</span>
+                          <span>
+                            <strong className="text-accent font-semibold">{title}</strong>:{desc}
+                          </span>
+                        </li>
+                      );
+                    }
+                    return (
+                      <li key={i} className="flex gap-2">
+                        <span className="text-accent font-semibold shrink-0">▪</span>
+                        <span>{feature}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
+
+            {/* Challenges Solved */}
+            {project.challenge && (
+              <div className="mb-8 border-l-2 border-accent/50 pl-4 py-2 bg-accent/[0.03] rounded-r">
+                <h4 className="font-mono text-xs uppercase tracking-widest text-accent mb-3 font-semibold">
+                  Challenges Solved
+                </h4>
+                <div className="space-y-3 font-mono text-xs md:text-sm text-foreground/80">
+                  <p>
+                    <strong className="text-muted-foreground uppercase text-[10px] tracking-wider block mb-1">Challenge</strong>
+                    {project.challenge.problem}
+                  </p>
+                  <p>
+                    <strong className="text-accent uppercase text-[10px] tracking-wider block mb-1">Solution</strong>
+                    {project.challenge.solution}
+                  </p>
+                </div>
+              </div>
+            )}
+
             {/* Links */}
             {project.links && Object.keys(project.links).length > 0 && (
               <div className="mb-8">
-                <h3 className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-3">
+                <h4 className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-3">
                   Links
-                </h3>
+                </h4>
                 <div className="flex flex-wrap gap-3">
                   {Object.entries(project.links).map(([label, url]) => (
                     <a

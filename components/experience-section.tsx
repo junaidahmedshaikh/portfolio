@@ -3,7 +3,7 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { achievements } from "@/lib/constant";
+import { achievements, responsibilities } from "@/lib/constant";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -82,37 +82,52 @@ export function ExperienceSection() {
               Aug 2025 – Apr 2026
             </span>
             <span className="font-mono text-xs text-muted-foreground">
-              Mumbai, India
+              Mumbai, MH
             </span>
           </div>
         </div>
 
-        {/* Achievements */}
-        <ul className="space-y-6">
-          {achievements.map((achievement, index) => (
-            <li
-              key={index}
-              className="flex gap-4 text-foreground/80 leading-relaxed"
-            >
-              <span className="font-mono text-xs text-accent font-semibold mt-1 shrink-0">
-                ▪
-              </span>
-              <span className="font-mono text-sm">
-                {achievement.split("→").map((part, i) => (
-                  <span key={i}>
-                    {i > 0 && (
-                      <span className="text-accent font-semibold"> → </span>
-                    )}
-                    {i > 0 && (
-                      <span className="text-accent/70">{part.trim()}</span>
-                    )}
-                    {i === 0 && part}
-                  </span>
-                ))}
-              </span>
-            </li>
-          ))}
-        </ul>
+        {/* Key Responsibilities */}
+        <div className="mb-12">
+          <h4 className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
+            Key Responsibilities
+          </h4>
+          <ul className="space-y-4">
+            {responsibilities.map((resp, index) => (
+              <li
+                key={index}
+                className="flex gap-4 text-foreground/80 leading-relaxed font-mono text-sm"
+              >
+                <span className="text-accent/60 mt-1 shrink-0 font-semibold">▪</span>
+                <span>{resp}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Achievements & Impact */}
+        <div>
+          <h4 className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
+            Achievements & Impact
+          </h4>
+          <ul className="space-y-6">
+            {achievements.map((ach, index) => (
+              <li
+                key={index}
+                className="flex gap-4 text-foreground/80 leading-relaxed"
+              >
+                <span className="font-mono text-xs text-accent font-semibold mt-1 shrink-0">
+                  ▪
+                </span>
+                <span className="font-mono text-sm">
+                  <span className="text-accent font-semibold">{ach.metric}</span>
+                  <span className="text-muted-foreground font-semibold"> → </span>
+                  <span className="text-foreground/80">{ach.description}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

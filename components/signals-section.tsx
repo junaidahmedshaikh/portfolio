@@ -73,24 +73,19 @@ export function SignalsSection() {
       {/* About content */}
       <div ref={contentRef} className="max-w-3xl">
         <p className="font-mono text-sm leading-relaxed text-foreground/80">
-          I'm a{" "}
-          <span className="text-accent font-semibold">Software Developer</span>{" "}
-          based in <span className="text-accent font-semibold">Mumbai</span>. I
-          build backend systems, real-time applications, and developer tools and
-          I tend to think about them in terms of{" "}
-          <span className="text-accent font-semibold">
-            architecture and failure modes
-          </span>{" "}
-          before I think about features.
+          I am a <span className="text-accent font-semibold">Full-Stack Developer</span> with strong expertise in both frontend and backend development, focused on building scalable, secure, and high-performance web applications. My experience spans designing{" "}
+          <span className="text-accent font-semibold">clean user experiences</span> on the client and architecting{" "}
+          <span className="text-accent font-semibold">robust backend systems</span> on the server. I work across the stack with{" "}
+          <span className="text-accent font-semibold">React, Next.js, Node.js, Express.js, and TypeScript</span>, utilizing databases like{" "}
+          <span className="text-accent font-semibold">MongoDB and MySQL</span>.
         </p>
 
         <p className="font-mono text-sm leading-relaxed text-foreground/80 mt-6">
-          The work I'm most proud of is work that{" "}
-          <span className="text-accent font-semibold">
-            scales without drama
-          </span>{" "}
-          and that another engineer can pick up without a long explanation.
-          That's the standard I hold my code to.
+          To ensure performance and reliability, I implement microservices, caching, session stores with{" "}
+          <span className="text-accent font-semibold">Redis</span>, and message queues. I leverage{" "}
+          <span className="text-accent font-semibold">WebSockets</span> for real-time capabilities and deploy applications using{" "}
+          <span className="text-accent font-semibold">Docker, AWS, and automated CI/CD pipelines</span>. Additionally, I integrate AI capabilities, automation tools, and modern developer tools to solve real-world problems with clean, maintainable code. My goal is to build reliable products that deliver{" "}
+          <span className="text-accent font-semibold">excellent user experiences and scale seamlessly as they grow</span>.
         </p>
       </div>
     </section>
