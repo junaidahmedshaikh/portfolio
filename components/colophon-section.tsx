@@ -142,6 +142,24 @@ export function ColophonSection() {
             </li>
           </ul>
         </div>
+        {/* Leetcode */}
+        <div className="col-span-1">
+          <h4 className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground mb-4">
+            LeetCode
+          </h4>
+          <ul className="space-y-2">
+            <li>
+              <a
+                href="https://leetcode.com/u/junaidahmedshaikh"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs text-foreground/80 hover:text-accent transition-colors duration-200"
+              >
+                junaidahmedshaikh
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
 
       {/* Bottom copyright */}

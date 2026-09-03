@@ -59,6 +59,7 @@ export const experiments: Project[] = [
       npm: "https://www.npmjs.com/package/nafex",
     }
   },
+  
   {
     title: "OneProfile",
     subtitle: "AI-Powered Multi-Tenant Digital Identity SaaS Platform",
@@ -82,6 +83,32 @@ export const experiments: Project[] = [
     links: {
       github: "https://github.com/junaidahmedshaikh/oneprofile",
       live: "https://oneprofile.in",
+    }
+  },
+  {
+    title: "Smash Burger",
+    subtitle: "Gourmet Burger E-Commerce Platform & Interactive 450°F Builder",
+    medium: "Full-Stack E-Commerce",
+    tagline: "A production-grade food ordering platform with a real-time burger customizer, cart engine, live order tracking, and an admin dispatch dashboard.",
+    role: "Full-Stack Developer",
+    description: "Smash Burger is an end-to-end gourmet burger e-commerce application spanning storefront, customization lab, checkout, and kitchen ops. It includes an interactive SVG blueprint hero, a layer-by-layer burger builder with live calorie, temperature, and price calculation, server-validated coupons, polled order tracking, and an administrative command center for inventory and dispatch.",
+    span: "col-span-1 row-span-1",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Express.js", "MongoDB", "JWT", "Zod", "npm workspaces"],
+    features: [
+      "450°F Burger Lab: Real-time layer-by-layer customizer with live calorie, temperature, and price calculation.",
+      "Gourmet Storefront: Category filtering, spice-level indicators, and modifier selection across burgers, chicken, sides, and shakes.",
+      "Cart & Promo Engine: Slide-over cart with free-shipping progress and server-validated coupons (FIRSTBITE20, SMASHD100).",
+      "Live Order Tracking: Stage stepper with auto-polling from kitchen sear through delivery.",
+      "Admin Command Center: Financial telemetry, revenue charts, live kitchen dispatch, and menu inventory controls.",
+      "Zero-Trust Checkout: Server-enforced pricing, JWT auth with HTTP-only cookies, and shared Zod validation across web and API."
+    ],
+    challenge: {
+      problem: "Client-side cart totals and coupon discounts can be tampered with before checkout, creating a trust gap between the storefront UI and what the kitchen should charge.",
+      solution: "Moved pricing, modifiers, and coupon evaluation to the Express API with shared Zod schemas, so the server is the source of truth for line items, discounts, and order totals regardless of what the client sends."
+    },
+    links: {
+      github: "https://github.com/junaidahmedshaikh/smash-burger",
+      live: "https://smash-burger-two.vercel.app/",
     }
   },
   {
