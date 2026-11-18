@@ -88,58 +88,6 @@ export const experiments: Project[] = [
   },
   links: null
 },
-  {
-    title: "Nafex",
-    subtitle: "Unified API Testing & System Performance Monitoring Library",
-    medium: "Developer Tooling",
-    tagline: "A zero-dependency TypeScript npm package combining API testing, system monitoring, and concurrency profiling.",
-    role: "Lead Creator & Maintainer",
-    description: "Nafex is an open-source testing library designed to unify functional API test cases, real-time CPU/heap monitoring, and concurrent performance metrics into a single test runner. Built to eliminate the bloat of installing multiple separate test packages in CI pipelines, Nafex runs with zero runtime dependencies.",
-    span: "col-span-1 row-span-1",
-    technologies: ["TypeScript", "Node.js", "Vitest", "ESBuild", "Axios", "npm"],
-    features: [
-      "Boilerplate Reduction: Abstracts test configuration setups, reducing typical test file length from 200 lines to just 5 lines (98% reduction).",
-      "Multi-Scenario Concurrency Tester: Simulates concurrent traffic loads via asynchronous execution, supporting load, stress, spike, and soak testing profiles.",
-      "Statistical Performance Analysis: Automatically compiles raw latency times into p50, p95, and p99 latency distribution metrics.",
-      "Dynamic Security Audit Module: Audits endpoints for common vulnerabilities, including HTTPS enforcement, CORS wildcard leaks, authorization bypass, XSS reflections, and SQL injections.",
-      "Low-Overhead Process Resource Monitor: Tracks memory allocations and CPU usage trends in parallel with running test suites to catch leaks early."
-    ],
-    challenge: {
-      problem: "Measuring latency with sub-millisecond precision without local system clock resolution interference (since standard JavaScript clock tools like Date.now() are capped at 1ms–15ms intervals depending on the OS).",
-      solution: "Refactored the latency hooks to utilize high-resolution timestamps (performance.now()), separating asynchronous event loop queuing latency from network response latency to return true networking metrics."
-    },
-    links: {
-      github: "https://github.com/junaidahmedshaikh/nafex",
-      npm: "https://www.npmjs.com/package/nafex",
-    }
-  },
-  
-  {
-    title: "OneProfile",
-    subtitle: "AI-Powered Multi-Tenant Digital Identity SaaS Platform",
-    medium: "SaaS Platform",
-    tagline: "An end-to-end portfolio and digital identity creation engine powered by Next.js, OpenAI, and Stripe.",
-    role: "Full-Stack Developer",
-    description: "OneProfile is a multi-tenant SaaS platform that allows professionals and small businesses to generate SEO-optimized portfolio landing pages in under 5 minutes. The application leverages AI for content generation and implements strict payment and session security.",
-    span: "col-span-2 row-span-1",
-    technologies: ["Next.js", "Redux Toolkit", "Express.js", "MongoDB", "OpenAI API", "Stripe Webhooks", "Zod", "npm workspaces"],
-    features: [
-      "Multi-Tenant Architecture: Logically isolates tenant portfolios and settings to ensure fast page serving and search engine discoverability.",
-      "Secure Token Lifecycle: Employs JWT access and refresh token exchange, secure HttpOnly cookie rotation with automatic reuse detection, and SHA-256 OTP verification.",
-      "Stripe Webhook Pipeline: Listens to Stripe events to automate subscription states, tier upgrades, and feature-gating limits.",
-      "AI Content Generation: Connects to the OpenAI API using structured prompts validated via Zod schemas to generate bios and project copy.",
-      "Monorepo Design: Organized using npm workspaces to share TypeScript interfaces and Zod validation models between client and server."
-    ],
-    challenge: {
-      problem: "Preventing webhook spoofing and payment bypass attempts where attackers send mock success events to the server's subscription routes.",
-      solution: "Implemented cryptographic signature verification on the raw incoming request payload using Stripe’s webhook signing secrets, alongside database state checks to ensure event IDs are processed uniquely."
-    },
-    links: {
-      github: "https://github.com/junaidahmedshaikh/oneprofile",
-      live: "https://oneprofile.in",
-    }
-  },
-
 {
   title: "Golden Guide",
   subtitle: "Offline-First Senior Care, Medication Management & Emergency Response Platform",
@@ -149,7 +97,7 @@ export const experiments: Project[] = [
   role: "Lead Full-Stack Software Engineer",
   description:
     "Golden Guide is a cross-platform healthcare and senior-care platform designed to connect seniors with their caregivers through reliable medication management, wellness tracking, and emergency assistance. Built using React Native CLI, NestJS, PostgreSQL, and React, the platform prioritizes offline resilience, native notification reliability, accessibility, and secure multi-persona experiences. It enables caregivers to monitor linked seniors, manage medication schedules, receive wellness alerts, and respond to emergencies through a centralized care ecosystem.",
-  span: "col-span-2 row-span-2",
+  span: "col-span-2 row-span-1",
   technologies: [
     "React Native CLI",
     "TypeScript",
@@ -193,6 +141,59 @@ export const experiments: Project[] = [
   },
   links: null
 },
+  {
+    title: "Nafex",
+    subtitle: "Unified API Testing & System Performance Monitoring Library",
+    medium: "Developer Tooling",
+    tagline: "A zero-dependency TypeScript npm package combining API testing, system monitoring, and concurrency profiling.",
+    role: "Lead Creator & Maintainer",
+    description: "Nafex is an open-source testing library designed to unify functional API test cases, real-time CPU/heap monitoring, and concurrent performance metrics into a single test runner. Built to eliminate the bloat of installing multiple separate test packages in CI pipelines, Nafex runs with zero runtime dependencies.",
+    span: "col-span-1 row-span-1",
+    technologies: ["TypeScript", "Node.js", "Vitest", "ESBuild", "Axios", "npm"],
+    features: [
+      "Boilerplate Reduction: Abstracts test configuration setups, reducing typical test file length from 200 lines to just 5 lines (98% reduction).",
+      "Multi-Scenario Concurrency Tester: Simulates concurrent traffic loads via asynchronous execution, supporting load, stress, spike, and soak testing profiles.",
+      "Statistical Performance Analysis: Automatically compiles raw latency times into p50, p95, and p99 latency distribution metrics.",
+      "Dynamic Security Audit Module: Audits endpoints for common vulnerabilities, including HTTPS enforcement, CORS wildcard leaks, authorization bypass, XSS reflections, and SQL injections.",
+      "Low-Overhead Process Resource Monitor: Tracks memory allocations and CPU usage trends in parallel with running test suites to catch leaks early."
+    ],
+    challenge: {
+      problem: "Measuring latency with sub-millisecond precision without local system clock resolution interference (since standard JavaScript clock tools like Date.now() are capped at 1ms–15ms intervals depending on the OS).",
+      solution: "Refactored the latency hooks to utilize high-resolution timestamps (performance.now()), separating asynchronous event loop queuing latency from network response latency to return true networking metrics."
+    },
+    links: {
+      github: "https://github.com/junaidahmedshaikh/nafex",
+      npm: "https://www.npmjs.com/package/nafex",
+    }
+  },
+  
+  {
+    title: "OneProfile",
+    subtitle: "AI-Powered Multi-Tenant Digital Identity SaaS Platform",
+    medium: "SaaS Platform",
+    tagline: "An end-to-end portfolio and digital identity creation engine powered by Next.js, OpenAI, and Stripe.",
+    role: "Full-Stack Developer",
+    description: "OneProfile is a multi-tenant SaaS platform that allows professionals and small businesses to generate SEO-optimized portfolio landing pages in under 5 minutes. The application leverages AI for content generation and implements strict payment and session security.",
+    span: "col-span-1 row-span-1",
+    technologies: ["Next.js", "Redux Toolkit", "Express.js", "MongoDB", "OpenAI API", "Stripe Webhooks", "Zod", "npm workspaces"],
+    features: [
+      "Multi-Tenant Architecture: Logically isolates tenant portfolios and settings to ensure fast page serving and search engine discoverability.",
+      "Secure Token Lifecycle: Employs JWT access and refresh token exchange, secure HttpOnly cookie rotation with automatic reuse detection, and SHA-256 OTP verification.",
+      "Stripe Webhook Pipeline: Listens to Stripe events to automate subscription states, tier upgrades, and feature-gating limits.",
+      "AI Content Generation: Connects to the OpenAI API using structured prompts validated via Zod schemas to generate bios and project copy.",
+      "Monorepo Design: Organized using npm workspaces to share TypeScript interfaces and Zod validation models between client and server."
+    ],
+    challenge: {
+      problem: "Preventing webhook spoofing and payment bypass attempts where attackers send mock success events to the server's subscription routes.",
+      solution: "Implemented cryptographic signature verification on the raw incoming request payload using Stripe’s webhook signing secrets, alongside database state checks to ensure event IDs are processed uniquely."
+    },
+    links: {
+      github: "https://github.com/junaidahmedshaikh/oneprofile",
+      live: "https://oneprofile.in",
+    }
+  },
+
+
 
   // {
   //   title: "Smash Burger",
