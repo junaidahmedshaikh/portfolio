@@ -34,6 +34,60 @@ export interface Project {
 }
 
 export const experiments: Project[] = [
+
+{
+  title: "Ellebeo",
+  subtitle: "Enterprise Multi-Sided Beauty Marketplace & CRM Ecosystem",
+  medium: "Enterprise SaaS / Marketplace",
+  tagline:
+    "A multi-platform beauty and medical aesthetics ecosystem connecting clients, technicians, doctors, and administrators through intelligent booking, clinical compliance, and financial workflows.",
+  role: "Full-Stack Software Developer",
+  description:
+    "Ellebeo is an enterprise-grade marketplace and unified CRM platform developed at Mathionix Technologies. Built using an npm workspace monorepo, it brings together five frontend applications and a centralized NestJS backend. The ecosystem supports consumer bookings, technician operations, doctor consultations, medical aesthetics compliance, bridal and commercial production management, and administrative workflows across web and mobile.",
+  span: "col-span-2 row-span-2",
+  technologies: [
+    "NestJS",
+    "Next.js 16",
+    "React 19",
+    "React Native",
+    "Expo",
+    "TypeScript",
+    "Prisma ORM",
+    "PostgreSQL",
+    "Redis",
+    "BullMQ",
+    "Socket.io",
+    "Stripe Connect",
+    "Docker",
+    "Traefik",
+    "PgBouncer",
+    "AWS S3",
+    "Firebase Cloud Messaging",
+    "Twilio",
+    "npm Workspaces"
+  ],
+  features: [
+    "Multi-Application Monorepo: Unified architecture powering the consumer portal, technician CRM, doctor CRM, admin portal, and React Native mobile application.",
+    "Multi-Role Authentication & RBAC: JWT-based authentication, refresh token rotation, secure HTTP-only cookies, role-based permissions, and server-side session revocation.",
+    "Advanced Booking Engine: Real-time availability, appointment scheduling, calendar conflict validation, booking lifecycle management, and payment integration.",
+    "Medical Aesthetics Compliance: Doctor consultation workflows, digital Injectable Cards, prescription authorization, and practitioner eligibility checks.",
+    "Bridal & Commercial Production: Multi-artist team management, visual scheduling, dynamic quotation generation, timesheets, and milestone-based payment workflows.",
+    "Financial Infrastructure: Stripe Connect integration, payment processing, specialist onboarding verification, and payout lifecycle management.",
+    "Real-Time Communication: Socket.io messaging, Redis-backed WebSocket synchronization, and live booking status updates.",
+    "Background Processing: BullMQ-powered asynchronous notifications, OTP delivery, scheduled jobs, retries, and automated communication workflows.",
+    "Cross-Platform Mobile Experience: Unified Expo application supporting client, technician, doctor, and Growth Studio roles.",
+    "Production Infrastructure: Docker-based deployments, Traefik reverse proxy, PgBouncer connection pooling, and Blue-Green deployment workflows.",
+    "Session & Form Resilience: Asynchronous useEnquiryDraft persistence with debouncing, automatic recovery, 14-day expiration, and clean submission handling.",
+    "Platform Security: DTO validation, parameterized database queries, webhook signature verification, rate limiting, and secure data erasure."
+  ],
+  challenge: {
+    problem:
+      "Engineering a complex multi-sided marketplace across five frontend applications and a centralized backend introduced challenges around session consistency, database connection exhaustion during deployments, payment race conditions, medical authorization workflows, and cross-platform feature parity.",
+    solution:
+      "Contributed to a modular monorepo architecture with shared TypeScript contracts, centralized authentication and authorization, Redis-backed infrastructure, PgBouncer transaction pooling, Stripe account verification, reusable validation schemas, and automated Blue-Green deployment workflows."
+  },
+  links: null
+},
   {
     title: "Nafex",
     subtitle: "Unified API Testing & System Performance Monitoring Library",
@@ -41,7 +95,7 @@ export const experiments: Project[] = [
     tagline: "A zero-dependency TypeScript npm package combining API testing, system monitoring, and concurrency profiling.",
     role: "Lead Creator & Maintainer",
     description: "Nafex is an open-source testing library designed to unify functional API test cases, real-time CPU/heap monitoring, and concurrent performance metrics into a single test runner. Built to eliminate the bloat of installing multiple separate test packages in CI pipelines, Nafex runs with zero runtime dependencies.",
-    span: "col-span-2 row-span-2",
+    span: "col-span-1 row-span-1",
     technologies: ["TypeScript", "Node.js", "Vitest", "ESBuild", "Axios", "npm"],
     features: [
       "Boilerplate Reduction: Abstracts test configuration setups, reducing typical test file length from 200 lines to just 5 lines (98% reduction).",
@@ -85,32 +139,87 @@ export const experiments: Project[] = [
       live: "https://oneprofile.in",
     }
   },
-  {
-    title: "Smash Burger",
-    subtitle: "Gourmet Burger E-Commerce Platform & Interactive 450°F Builder",
-    medium: "Full-Stack E-Commerce",
-    tagline: "A production-grade food ordering platform with a real-time burger customizer, cart engine, live order tracking, and an admin dispatch dashboard.",
-    role: "Full-Stack Developer",
-    description: "Smash Burger is an end-to-end gourmet burger e-commerce application spanning storefront, customization lab, checkout, and kitchen ops. It includes an interactive SVG blueprint hero, a layer-by-layer burger builder with live calorie, temperature, and price calculation, server-validated coupons, polled order tracking, and an administrative command center for inventory and dispatch.",
-    span: "col-span-1 row-span-1",
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Express.js", "MongoDB", "JWT", "Zod", "npm workspaces"],
-    features: [
-      "450°F Burger Lab: Real-time layer-by-layer customizer with live calorie, temperature, and price calculation.",
-      "Gourmet Storefront: Category filtering, spice-level indicators, and modifier selection across burgers, chicken, sides, and shakes.",
-      "Cart & Promo Engine: Slide-over cart with free-shipping progress and server-validated coupons (FIRSTBITE20, SMASHD100).",
-      "Live Order Tracking: Stage stepper with auto-polling from kitchen sear through delivery.",
-      "Admin Command Center: Financial telemetry, revenue charts, live kitchen dispatch, and menu inventory controls.",
-      "Zero-Trust Checkout: Server-enforced pricing, JWT auth with HTTP-only cookies, and shared Zod validation across web and API."
-    ],
-    challenge: {
-      problem: "Client-side cart totals and coupon discounts can be tampered with before checkout, creating a trust gap between the storefront UI and what the kitchen should charge.",
-      solution: "Moved pricing, modifiers, and coupon evaluation to the Express API with shared Zod schemas, so the server is the source of truth for line items, discounts, and order totals regardless of what the client sends."
-    },
-    links: {
-      github: "https://github.com/junaidahmedshaikh/smash-burger",
-      live: "https://smash-burger-two.vercel.app/",
-    }
+
+{
+  title: "Golden Guide",
+  subtitle: "Offline-First Senior Care, Medication Management & Emergency Response Platform",
+  medium: "Healthcare Technology / Full-Stack SaaS",
+  tagline:
+    "A cross-platform senior care ecosystem combining intelligent medication reminders, caregiver monitoring, offline synchronization, and one-tap emergency response.",
+  role: "Lead Full-Stack Software Engineer",
+  description:
+    "Golden Guide is a cross-platform healthcare and senior-care platform designed to connect seniors with their caregivers through reliable medication management, wellness tracking, and emergency assistance. Built using React Native CLI, NestJS, PostgreSQL, and React, the platform prioritizes offline resilience, native notification reliability, accessibility, and secure multi-persona experiences. It enables caregivers to monitor linked seniors, manage medication schedules, receive wellness alerts, and respond to emergencies through a centralized care ecosystem.",
+  span: "col-span-2 row-span-2",
+  technologies: [
+    "React Native CLI",
+    "TypeScript",
+    "React 19",
+    "Vite",
+    "NestJS",
+    "Node.js 22",
+    "PostgreSQL",
+    "TypeORM",
+    "TanStack Query",
+    "AsyncStorage",
+    "Notifee",
+    "Firebase Authentication",
+    "Firebase Cloud Messaging",
+    "Razorpay",
+    "react-native-iap",
+    "i18next",
+    "NetInfo",
+    "JWT",
+    "Tailwind CSS"
+  ],
+  features: [
+    "Dual-Persona Session Management: Enables caregivers to securely switch into a linked senior's application view without logging out or creating separate accounts.",
+    "Offline-First Synchronization: Implements a persistent AsyncStorage outbox that queues user actions during network outages and synchronizes them idempotently when connectivity returns.",
+    "Native Medication Reminders: Uses Notifee and native timestamp-based scheduling to deliver medication reminders independently of JavaScript timer execution.",
+    "One-Tap & Shake-to-SOS: Integrates GPS location, accelerometer-based shake detection, a cancellation countdown, Firebase push alerts, and native phone dialer fallback.",
+    "Caregiver Monitoring Dashboard: Provides visibility into medication adherence, missed reminders, wellness check-ins, and emergency notifications.",
+    "Wellness & Mood Tracking: Supports daily morning, afternoon, and evening check-ins with automated priority flags for caregiver attention.",
+    "Family Subscription Management: Integrates monthly, annual, and family subscription plans with Razorpay and Apple In-App Purchases.",
+    "Secure Multi-Provider Authentication: Supports Firebase Phone OTP, Google, and Apple authentication alongside scoped backend JWT sessions.",
+    "Multi-Language & RTL Support: Implements dynamic localization for English, Hindi, Urdu, and Arabic with automatic right-to-left layout adaptation.",
+    "Cross-Platform Architecture: Connects a React Native mobile application and React web dashboard to a centralized NestJS API.",
+    "Payment Webhook Reliability: Implements HMAC SHA-256 signature verification, idempotent event processing, and subscription entitlement reconciliation.",
+    "Accessibility-Focused UI: Uses senior-friendly design principles, large touch targets, simplified navigation, and consistent design tokens."
+  ],
+  challenge: {
+    problem:
+      "Building a dependable senior-care application required solving multiple interconnected engineering challenges: medication reminders had to survive mobile operating system background restrictions, user actions needed to persist during network outages, caregivers required secure persona switching, and simultaneous API requests could trigger refresh-token rotation conflicts.",
+    solution:
+      "Developed a native notification scheduling engine using Notifee, a persistent offline outbox with idempotent synchronization, a dual-persona session manager, and an in-flight promise deduplication mechanism for JWT refresh requests. Combined these with verified payment webhooks, scoped authorization, and direction-aware localization to improve platform reliability."
   },
+  links: null
+},
+
+  // {
+  //   title: "Smash Burger",
+  //   subtitle: "Gourmet Burger E-Commerce Platform & Interactive 450°F Builder",
+  //   medium: "Full-Stack E-Commerce",
+  //   tagline: "A production-grade food ordering platform with a real-time burger customizer, cart engine, live order tracking, and an admin dispatch dashboard.",
+  //   role: "Full-Stack Developer",
+  //   description: "Smash Burger is an end-to-end gourmet burger e-commerce application spanning storefront, customization lab, checkout, and kitchen ops. It includes an interactive SVG blueprint hero, a layer-by-layer burger builder with live calorie, temperature, and price calculation, server-validated coupons, polled order tracking, and an administrative command center for inventory and dispatch.",
+  //   span: "col-span-1 row-span-1",
+  //   technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Express.js", "MongoDB", "JWT", "Zod", "npm workspaces"],
+  //   features: [
+  //     "450°F Burger Lab: Real-time layer-by-layer customizer with live calorie, temperature, and price calculation.",
+  //     "Gourmet Storefront: Category filtering, spice-level indicators, and modifier selection across burgers, chicken, sides, and shakes.",
+  //     "Cart & Promo Engine: Slide-over cart with free-shipping progress and server-validated coupons (FIRSTBITE20, SMASHD100).",
+  //     "Live Order Tracking: Stage stepper with auto-polling from kitchen sear through delivery.",
+  //     "Admin Command Center: Financial telemetry, revenue charts, live kitchen dispatch, and menu inventory controls.",
+  //     "Zero-Trust Checkout: Server-enforced pricing, JWT auth with HTTP-only cookies, and shared Zod validation across web and API."
+  //   ],
+  //   challenge: {
+  //     problem: "Client-side cart totals and coupon discounts can be tampered with before checkout, creating a trust gap between the storefront UI and what the kitchen should charge.",
+  //     solution: "Moved pricing, modifiers, and coupon evaluation to the Express API with shared Zod schemas, so the server is the source of truth for line items, discounts, and order totals regardless of what the client sends."
+  //   },
+  //   links: {
+  //     github: "https://github.com/junaidahmedshaikh/smash-burger",
+  //     live: "https://smash-burger-two.vercel.app/",
+  //   }
+  // },
   {
     title: "3D Solar System",
     subtitle: "Interactive 3D Celestial Simulation & WebGL Rendering Engine",
